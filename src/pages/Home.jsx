@@ -14,7 +14,6 @@ const Home = ({ category }) => {
 
 
     async function fetchProductsData() {
-        debugger
         setLoading(true);
 
         try{

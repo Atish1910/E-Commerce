@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import CartItem from "../Componenets/CartItem";
+import { Link } from "react-router-dom";
+
+const Cart = () => {
+  const { cart } = useSelector((state) => state);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  useEffect(() => {
+    setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
+  }, [cart]);
+
+  return (
+    <div className="container">
+      <h3>i am cart Component</h3>
+      {cart.length > 0 ? (
+        <div className="row justify-content-between mx-auto gx-5">
+          <div className="col-12 col-lg-8">
+            {cart.map((item, index) => (
+              <CartItem key={item.id} item={item} itemIndex={index} />
+            ))}
+          </div>
+
+          <div className="col-12 col-lg-4 d-flex flex-column justify-content-between my-5 gap-3">
+            <div className="d-flex flex-column gap-3">
+              <h4 className="text-success fw-semibold">Your Cart</h4>
+              <h1 className="text-success display-5 fw-bold mt-n2">Summary</h1>
+              <p className="fs-5 text-secondary fw-semibold">
+                Total Items: {cart.length}
+              </p>
+            </div>
+
+            <div className="d-flex flex-column">
+              <p className="fs-5 fw-bold">Total Amount: ${totalAmount}</p>
+              <button className="btn btn-success fw-bold fs-5">
+                CheckOut Now
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "80vh" }}>
+          <h4 className="text-secondary fw-semibold mb-3">
+            Your cart is empty!
+          </h4>
+          <Link to="/">
+            <button className="btn btn-success px-4 py-2 fw-semibold">
+              Shop Now
+            </button>
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Cart;
+x``

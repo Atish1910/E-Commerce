@@ -103,6 +103,23 @@ h6,
     left: 10px;
     bottom: 0;
 }
+.z-index-01{
+    z-index: 0;
+}
+.product-add{
+    border-radius: 10px;
+    background-color: var(--grey);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 1;
+}
 .nav-tab{
     text-decoration: none;
     color: black;
@@ -112,4 +129,18 @@ h6,
     text-decoration: none;
     color: #ffc400;
     font-weight: bold;
+}
+.count-01{
+    position: absolute;
+    font-size: 10px;
+    top: -5px;
+    left: 15px;
+    background-color: #ffc400;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px !important;
+    border-radius: 50%;
 }
