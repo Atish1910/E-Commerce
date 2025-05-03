@@ -103,3 +103,13 @@ h6,
     left: 10px;
     bottom: 0;
 }
+.nav-tab{
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+.nav-tab-active{
+    text-decoration: none;
+    color: #ffc400;
+    font-weight: bold;
+}

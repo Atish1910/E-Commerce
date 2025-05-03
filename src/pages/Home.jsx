@@ -5,10 +5,12 @@ import Product from '../components/Product';
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
-const Home = () => {
+const Home = ({ category }) => {
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+
 
 
     async function fetchProductsData() {
@@ -32,17 +34,36 @@ const Home = () => {
         fetchProductsData();
     }, [])
 
+    const filteredPosts = posts
+    .filter((post) => {
+      return category ? post.category.slug === category : true;
+    })
+    
+    // Next, apply the search filter
+    // This filters the already category-matched posts by checking if
+    // the product's title includes the user's search term (case-insensitive).
+    .filter((post) => 
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) 
+    );
+   
+
     return (
         <>
-            <div className="row border py-4">
-                <h2>Home Component</h2>
+            <div className="row border py-4 justify-content-center">
+                <div className="col-lg-8 mb-4">
+                    <form >
+                        <input type="text" placeholder='Search Product By Name' className='form-control'
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)} />
+                    </form>
+                </div>
                 {loading ? (
                         <Spinner></Spinner>
-                    ) : posts.length > 0 ? (
+                    ) : filteredPosts.length > 0 ? (
                         <div className="col-lg-12 border">
                             <div className="row">
                                 {
-                                    posts.map((post) => {
+                                    filteredPosts.map((post) => {
                                         return(
                                         //     <div className="col-lg-4">
                                         //         <div className=" py-3 rounded-3 mb-4 mt-2">

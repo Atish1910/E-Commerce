@@ -6,7 +6,7 @@ const Product = ({
 }) => {
     return (
 <>
-    <div className=" py-3 rounded-3 mb-4 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    <div className=" py-3 rounded-3 mb-4 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" 
       onClick={() => onSelect(post)}>
         <div className="position-relative">
             <img src={post.category.image} className='product' loading='lazy' alt="" />
