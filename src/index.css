@@ -158,3 +158,10 @@ h6,
     border-radius: 10px;
     object-fit: cover;
 }
+
+.input-errors{
+    border: 1px solid red !important;
+  }
+  .form-control:focus {
+    box-shadow: unset !important;
+  }

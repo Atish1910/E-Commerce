@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { add, remove } from "../Redux/Slices/CartSlice";
+import { add, remove, decreaseItemQuantity , addItemQuantity} from "../Redux/Slices/CartSlice";
 import toast from "react-hot-toast";
-import { MdDelete } from "react-icons/md";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -12,11 +11,14 @@ const CartItem = ({ item }) => {
     dispatch(remove(item.id));
     toast.success("Item Removed from Cart");
   };
-  const addMoreItem = () => {
-    debugger
-    dispatch(add(item.id));
-  }
 
+  const increaseQuantity = () => {
+    dispatch(addItemQuantity(item)); // 
+  };
+
+  const decreaseQuantity = () => {
+    dispatch(decreaseItemQuantity(item.id)); 
+  };
   return (
     <>
       <div className="row border py-2 mt-4 rounded-3 align-items-center">
@@ -27,14 +29,14 @@ const CartItem = ({ item }) => {
           <h1 className="h5 text-secondary ">{item.title}</h1>
           <p className="fw-bold text-success fs-5">${item.price}</p>
           <div className="d-flex  align-items-center justify-content-around">
-          <button onClick={removeFromCart} className=" border-0 text-primary h3"
+          <button onClick={decreaseQuantity} className=" border-0 text-primary h3"
             style={{ background: 'transparent' }}>
             <i class="bi bi-dash fs-3 border rounded-pill"></i>
           </button>
             
-            <span className=" fs-3 border rounded-pill">5</span>
+            <span className=" fs-3 border rounded-pill">{item.quantity || 1}</span>
             
-            <button onClick={addMoreItem} className=" border-0 text-primary h3"
+            <button onClick={increaseQuantity} className=" border-0 text-primary h3"
             style={{ background: 'transparent' }}>
             <i class="bi bi-plus fs-3 border rounded-pill"></i>
           </button>

@@ -7,6 +7,9 @@ import Home from "./pages/Home"
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
+import MyAccount from "./components/MyAccount";
+import Register from "./login/Register";
+import Login from "./login/Login";
 
 function App() {
 
@@ -25,6 +28,10 @@ function App() {
             <Route path="/shoes" element={<Home category="shoes" />} />
             <Route path="/miscellaneous" element={<Home category="miscellaneous" />} />
             <Route path="/cart" element={<Cart></Cart>} />
+            <Route path="/my-account" element={<MyAccount></MyAccount>} />
+            <Route path="/register" element={<Register></Register>} />
+            <Route path="/login" element={<Login></Login>} />
+
 
           </Routes>
         </div>
