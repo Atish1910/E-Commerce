@@ -120,15 +120,15 @@ h6,
     top: 0;
     z-index: 1;
 }
-.nav-tab{
+.nav-link, .nav-tab{
     text-decoration: none;
     color: black;
     font-weight: normal;
 }
-.nav-tab-active{
+.nav-link-active{
     text-decoration: none;
     color: #ffc400;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 .count-01{
     position: absolute;
@@ -143,4 +143,18 @@ h6,
     height: 20px;
     width: 20px !important;
     border-radius: 50%;
+}
+
+.navbar .navbar-nav .nav-link , .navbar .navbar-nav .nav-link-active {
+    margin-right: 30px;
+    padding: 10px 0 3px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+}
+.cart-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    object-fit: cover;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import CartItem from "../Componenets/CartItem";
+import CartItem from "../components/CartItem";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
@@ -13,7 +13,6 @@ const Cart = () => {
 
   return (
     <div className="container">
-      <h3>i am cart Component</h3>
       {cart.length > 0 ? (
         <div className="row justify-content-between mx-auto gx-5">
           <div className="col-12 col-lg-8">
@@ -56,4 +55,3 @@ const Cart = () => {
 };
 
 export default Cart;
-x``

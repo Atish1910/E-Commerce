@@ -76,7 +76,7 @@ const Home = ({ category }) => {
                                         //             </div>
                                         //         </div>
                                         //     </div>
-                                            <div className="col-md-6 col-lg-3 mb-4" key={post.id}>
+                                            <div className="col-6 col-lg-3 mb-4" key={post.id}>
                                                 <Product post={post} onSelect={(product) => setSelectedProduct(product)} ></Product>
                                             </div>
                                         )
