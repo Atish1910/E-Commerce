@@ -110,13 +110,13 @@ h6,
     border-radius: 10px;
     background-color: var(--grey);
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 10px;
+    right: 0px;
     top: 0;
     z-index: 1;
 }

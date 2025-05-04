@@ -11,6 +11,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
     } = useForm();
 
     function onLogin(data) {
+        debugger
         const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
     
         const userExists = storedUsers.find(user => user.phone === data.phoneNo && user.password === data.password);
@@ -21,8 +22,6 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
             toast.success("Login Successful!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("loggedInUser", JSON.stringify(userExists));
-            setIsLoggedIn(true);
-            setLoggedInUser(userExists);
             navigate("/my-account");
         } else {
             if (!userPhone) {

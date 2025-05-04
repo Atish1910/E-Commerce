@@ -21,13 +21,11 @@ const Cart = () => {
             ))}
           </div>
 
-          <div className="col-12 col-lg-4 d-flex flex-column justify-content-between my-5 gap-3">
+          <div className="col-lg-4 mt-5 py-5 border rounded-3">
             <div className="d-flex flex-column gap-3">
               <h4 className="text-success fw-semibold">Your Cart</h4>
               <h1 className="text-success display-5 fw-bold mt-n2">Summary</h1>
-              <p className="fs-5 text-secondary fw-semibold">
-                Total Items: {cart.length}
-              </p>
+              <p className="fs-5 text-secondary fw-semibold">Total Items: {cart.length}</p>
             </div>
 
             <div className="d-flex flex-column">

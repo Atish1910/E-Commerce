@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from "react-router-dom";
 import myprofile from "../assets/img/profile.webp"
+import Navbar from './Navbar';
 
 const MyAccount = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -1,9 +1,22 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const { cart } = useSelector((state) => state);
+        const [isLoggedIn, setIsLoggedIn] = useState(false);
+        const [loggedInUser, setLoggedInUser] = useState(null);
+      
+        useEffect(() => {
+          const storedLogin = localStorage.getItem("isLoggedIn");
+          const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      
+          if (storedLogin === "true" && storedUser) {
+            setIsLoggedIn(true);
+            setLoggedInUser(storedUser);
+          }
+        }, []);
   return (
     <div className="container sticky-top">
       <div className="row align-items-center" >
@@ -44,7 +57,8 @@ const Navbar = () => {
           </div>
       </nav>
         </div>
-        <div className="col-5 d-lg-block d-none text-end pe-lg-4">
+        <div className="col-5 d-lg-flex align-items-center justify-content-around d-none text-end pe-lg-4">
+        <p className='mb-0'><b>{loggedInUser?.email}</b></p>
             <NavLink to="/cart">
             <div className=" ps-3">
               <i class="bi bi-cart fs-4 fw-bold text-dark position-relative">
