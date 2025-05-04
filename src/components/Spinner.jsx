@@ -2,8 +2,8 @@ import React from 'react';
 
 const Spinner = () => {
     return (
-        <div>
-            <h3>Hii i am Spinner Component</h3>
+        <div className='vh-100 bg-light text-center'>
+            <h1>Please Wait Data is loading</h1>
         </div>
     );
 };

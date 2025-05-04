@@ -53,6 +53,7 @@ const Navbar = () => {
                       <NavLink to="/my-account" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>My Account</NavLink>
                       {/* <NavLink to="/register" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Register</NavLink>
                       <NavLink to="/login" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Login</NavLink> */}
+                      <p className='mb-0 d-lg-none'><b>{loggedInUser?.email}</b></p>
               </div>
           </div>
       </nav>

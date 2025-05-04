@@ -37,7 +37,6 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
         <section className="login_01">
             <div className="container">
                 <div className="row justify-content-center text-center">
-                    <h1>Ballr - Welcome to Ballr PR/Admin Application</h1>
                     <div className="col-lg-6 border rounded-3 py-4">
                         <form onSubmit={handleSubmit(onLogin)}>
                             <input 

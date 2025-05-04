@@ -26,7 +26,7 @@ const CartItem = ({ item }) => {
           <img src={item.category.image} className="cart-img" alt="" />
         </div>
         <div className="col-6">
-          <h1 className="h5 text-secondary ">{item.title}</h1>
+          <h1 className="text-secondary cart-text ">{item.title}</h1>
           <p className="fw-bold text-success fs-5">${item.price}</p>
           <div className="d-flex  align-items-center justify-content-around">
           <button onClick={decreaseQuantity} className=" border-0 text-primary h3"

@@ -23,6 +23,7 @@ const MyAccount = () => {
         localStorage.removeItem("loggedInUser");
         setIsLoggedIn(false);
         setLoggedInUser(null);
+        Navigate("/app");
       };
 
     
@@ -32,14 +33,14 @@ const MyAccount = () => {
     {isLoggedIn ? (
         <>
         
-          <div className="container mt-5 pt-5">
+          <div className="container my-5 pt-5">
             <div className="row justify-content-center">
-                <div className="col-lg-6 border rounded-3">
+                <div className="col-lg-6 border rounded-3 py-3">
                     <div className="text-center">
                         <p>Created By :</p>
                         <img src={myprofile} height="150px" width="150px" className='rounded-pill border' alt="" />
                         <h5>{loggedInUser?.fullName}</h5>
-                        <p>User Name : {loggedInUser?.email}</p>
+                        <p>User Email : {loggedInUser?.email}</p>
                         <button className="btn btn-danger mt-3" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>

@@ -89,7 +89,7 @@ h6,
     border-bottom: solid#ffc400 2px ;
 }
 .product{
-    height: 250px;
+    height: 190px;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -164,4 +164,17 @@ h6,
   }
   .form-control:focus {
     box-shadow: unset !important;
+  }
+  .cart-text{
+    font-size: 13px;
+  }
+  @media (min-width:992px){
+    .product{
+        height: 250px;
+    
+    }
+    .cart-text{
+      font-size: 26px;
+    }
+    
   }

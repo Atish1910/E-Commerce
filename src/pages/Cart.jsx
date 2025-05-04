@@ -14,8 +14,8 @@ const Cart = () => {
   return (
     <div className="container">
       {cart.length > 0 ? (
-        <div className="row justify-content-between mx-auto gx-5">
-          <div className="col-12 col-lg-8">
+        <div className="row justify-content-between my-5">
+          <div className="col-12 col-lg-8 px-0 px-lg-3">
             {cart.map((item, index) => (
               <CartItem key={item.id} item={item} itemIndex={index} />
             ))}
