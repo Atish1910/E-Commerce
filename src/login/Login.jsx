@@ -3,27 +3,39 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function Login({ setIsLoggedIn, setLoggedInUser }) {
+    
+    //navigation define here to redirect to other component 
     const navigate = useNavigate();
+    
+    // form validation, data storeing, binding will take care of below code (react hook forms)
     const { 
-        register,
+        register, 
         handleSubmit,
         formState: { errors, isSubmitting }
     } = useForm();
 
+    // here i write functaion for when user click on login
     function onLogin(data) {
-        debugger
+        // debugger
+        // store that data inside  local stoarge
         const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    
+        
+        // it will check in local storage phone no & pass will availabe or not
         const userExists = storedUsers.find(user => user.phone === data.phoneNo && user.password === data.password);
+        
+        // it will check only mobile no is exits in local storage or not
         const userPhone = storedUsers.find(user => user.phone === data.phoneNo);
     
+        // if user is availabe then run if block
         if (userExists) {
             
-            toast.success("Login Successful!");
-            localStorage.setItem("isLoggedIn", "true");
+            toast.success("Login Successful!"); // show popup 
+            localStorage.setItem("isLoggedIn", "true"); 
             localStorage.setItem("loggedInUser", JSON.stringify(userExists));
-            navigate("/my-account");
-        } else {
+            navigate("/my-account"); // after successful login we will redrect to my component
+        }
+        // if user enter incorrect credential run below else block
+        else {
             if (!userPhone) {
                 toast.error("Your Phone No is not registered. Please register your phone number.");
             } else {
@@ -47,6 +59,7 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
                                     required: "Phone Number is required",
                                     minLength: { value: 10, message: "Please enter a 10-digit Mobile Number" },
                                     maxLength: { value: 10, message: "Please enter a 10-digit Mobile Number" }
+                                    // added validation user can only enter 10 Digits
                                 })}
                             />
                             {errors.phoneNo && <p className="text-danger">{errors.phoneNo.message}</p>}

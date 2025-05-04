@@ -4,11 +4,11 @@ import axios from 'axios';
 import Product from '../components/Product';
 
 //here is api link where we get all data 
-const API_URL = "https://api.escuelajs.co/api/v1/products";
+const API_URL = "https://api.escuelajs.co/api/v1/products"; 
 
 const Home = ({ category }) => {
     const [loading, setLoading] = useState(false);
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]); 
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
 

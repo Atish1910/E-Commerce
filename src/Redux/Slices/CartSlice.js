@@ -2,15 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Create Slice to the component using react hook
 export const CartSlice = createSlice({
-  // Name Of the slice
+  // Name Of the slice we will use as a key
   name: "cart",
-  // Initial state is Empty array
+
+  //  initilise state for blank(empty) array
   initialState: [],
-  // Reducers contain all the functions
+
+
+  //it is besically funcation how reducer state will change as per dispatch
   reducers: {
-    // Original Add To Cart Function — unchanged
+    
+    // we are adding product inside cart 
     add: (state, action) => {
-      // 'action.payload' is the item to add to Cart
+      // that peoduct contain below data
       state.push({ ...action.payload, quantity: 1 });
     },
 

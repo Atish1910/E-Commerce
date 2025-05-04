@@ -4,26 +4,33 @@ import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from "react
 import myprofile from "../assets/img/profile.webp"
 import Navbar from './Navbar';
 
+
+// in below component we are showing data of user if he loggedin we show all details here 
+// phone email & name 
+// if user is not logged in then we show him a button login first
 const MyAccount = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [loggedInUser, setLoggedInUser] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // check user is loggedin or not
+    const [loggedInUser, setLoggedInUser] = useState(null); // storeing login details
   
+    // this funcation will only run when componnent render & check if user logged in from local storage or not
     useEffect(() => {
-      const storedLogin = localStorage.getItem("isLoggedIn");
+      const storedLogin = localStorage.getItem("isLoggedIn"); // take a status of login
       const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   
+      // if user is loggin update status as per 
       if (storedLogin === "true" && storedUser) {
         setIsLoggedIn(true);
         setLoggedInUser(storedUser);
       }
     }, []);
 
+    // it will remove data from local storage
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("loggedInUser");
         setIsLoggedIn(false);
         setLoggedInUser(null);
-        Navigate("/app");
+        Navigate("/app"); // redirect to app 
       };
 
     
@@ -31,6 +38,7 @@ const MyAccount = () => {
         
     <div>
     {isLoggedIn ? (
+        //if user is loggedin thwn we show below data
         <>
         
           <div className="container my-5 pt-5">
@@ -48,6 +56,7 @@ const MyAccount = () => {
         </div>  
         </>
         ) : (
+            //else we show below data(if not loggedin)
             <>
             <div className="container py-5 bg-blue vh-100">
                 <div className="row justify-content-center">

@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
+// in this below component we added a navlinks for each funcation user can redirect on simply clicking on link
+// if that funcation is show then we added a active class so user will get idea he is on which component
+// in cart icon if user click on any product it will increase count on that icon as per user input
+
 const Navbar = () => {
+  // we proovide data of login creential to navbar so we can display user Email in navbar
     const { cart } = useSelector((state) => state);
         const [isLoggedIn, setIsLoggedIn] = useState(false);
         const [loggedInUser, setLoggedInUser] = useState(null);
@@ -31,6 +37,7 @@ const Navbar = () => {
                       className="count-01" 
                       style={{animation: 'bounce 1s infinite' }}
                       >
+                        {/* if user click any product it will increase count */}
                       {cart.length}
                     </span>
                     
@@ -38,12 +45,14 @@ const Navbar = () => {
                 </div>
               </NavLink>
             </div>
-                  <NavLink to="/" className="nav-tab fs-4 fw-bold pe-lg-4 d-lg-none" >Shopi</NavLink>
-          <button type="button" className="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+            <NavLink to="/" className="nav-tab fs-4 fw-bold pe-lg-4 d-lg-none" >Shopi</NavLink>
+            <button type="button" className="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          {/* navbar for desktop view */}
           <div className="collapse navbar-collapse justify-content-center align-items-center" id="navbarCollapse">
               <div className="navbar-nav">
+                {/* // here are all navlinks user can navgate on clicking on them */}
                   <NavLink to="/" className="nav-tab fs-4 fw-bold pe-lg-4 d-none" >Shopi</NavLink>
                       <NavLink to="/" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Home</NavLink>
                       <NavLink to="/nuevo" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Electronics</NavLink>
@@ -53,12 +62,14 @@ const Navbar = () => {
                       <NavLink to="/my-account" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>My Account</NavLink>
                       {/* <NavLink to="/register" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Register</NavLink>
                       <NavLink to="/login" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Login</NavLink> */}
+                      {/* if user is loggedin then show his email id in navbar */}
                       <p className='mb-0 d-lg-none'><b>{loggedInUser?.email}</b></p>
               </div>
           </div>
       </nav>
         </div>
         <div className="col-5 d-lg-flex align-items-center justify-content-around d-none text-end pe-lg-4">
+        {/* cart item for mobile view  */}
         <p className='mb-0'><b>{loggedInUser?.email}</b></p>
             <NavLink to="/cart">
             <div className=" ps-3">

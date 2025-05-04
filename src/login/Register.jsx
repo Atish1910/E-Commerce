@@ -3,16 +3,23 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+  
+  //navigation define here to redirect to other component 
   const navigate = useNavigate();
+
+  // form validation, data storeing, binding will take care of below code (react hook forms)
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
 
+  // here is function for user will register 
   async function onRegistration(data) {
-    await new Promise((res) => setTimeout(res, 2000)); // Simulate API delay
 
+    await new Promise((res) => setTimeout(res, 2000)); 
+
+    // store register data inside localstorage
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
     // Add user to local storage
@@ -23,8 +30,8 @@ function Register() {
     storedUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(storedUsers));
 
-    toast.success("Registration Successful");
-    navigate("/login");
+    toast.success("Registration Successful"); // popup will open
+    navigate("/login"); // redrect to login component
   }
 
   return (
@@ -52,6 +59,7 @@ function Register() {
                   {...register("phone", { required: "Phone number is required",
                     minLength: { value: 10, message: "Please enter a 10-digit Mobile Number" },
                     maxLength: { value: 10, message: "Please enter a 10-digit Mobile Number" }
+                    // mobile no should be 10Digits
                    })}
                 />
                 {errors.phone && <p className="text-danger">{errors.phone.message}</p>}
@@ -63,6 +71,7 @@ function Register() {
                   className={`mb-3 form-control ${errors.email ? "input-errors" : ""}`}
                   placeholder="Enter Email Id"
                   {...register("email", { required: "Email is required" })}
+                  // Enly email should be enter 
                 />
                 {errors.email && <p className="text-danger">{errors.email.message}</p>}
 
