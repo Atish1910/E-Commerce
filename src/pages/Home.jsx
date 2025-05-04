@@ -3,6 +3,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import Product from '../components/Product';
 
+//here is api link where we get all data 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
 const Home = ({ category }) => {
@@ -12,15 +13,17 @@ const Home = ({ category }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
 
-
+    // get api call with axios
     async function fetchProductsData() {
+        // debugger
+        // while doing api call fetching data from api till that we show spinner that sppinnr depend on below true & false
         setLoading(true);
 
         try{
-            const res = await axios.get(API_URL);
+            const res = await axios.get(API_URL); // bind api call in res veriable
             setPosts(res.data);
             // console.log("Fetching api" + posts);
-            console.log(res.data);
+            console.log(res.data); // foe debugging
         }catch(error){
             console.log("Unable To Fetch Products ", error);
             setPosts([]);
@@ -28,19 +31,19 @@ const Home = ({ category }) => {
         }
         setLoading(false);
     }
-
+    
+    // if page get refresh function will get auto call
     useEffect(() => {
         fetchProductsData();
     }, [])
 
+    // we are filtering data by category (shoe, cloaths, furniture)
     const filteredPosts = posts
     .filter((post) => {
       return category ? post.category.slug === category : true;
     })
     
-    // Next, apply the search filter
-    // This filters the already category-matched posts by checking if
-    // the product's title includes the user's search term (case-insensitive).
+    // we added a funality for serching product on basis of title
     .filter((post) => 
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) 
     );
