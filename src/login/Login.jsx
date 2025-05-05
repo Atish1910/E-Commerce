@@ -33,6 +33,8 @@ function Login({ setIsLoggedIn, setLoggedInUser }) {
             localStorage.setItem("isLoggedIn", "true"); 
             localStorage.setItem("loggedInUser", JSON.stringify(userExists));
             navigate("/my-account"); // after successful login we will redrect to my component
+            // setIsLoggedIn(true);
+            setLoggedInUser(userExists);
         }
         // if user enter incorrect credential run below else block
         else {

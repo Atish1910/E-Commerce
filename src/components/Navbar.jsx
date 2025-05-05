@@ -52,7 +52,12 @@ const Navbar = ({ isLoggedIn, loggedInUser }) => {
                       {/* <NavLink to="/register" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Register</NavLink>
                       <NavLink to="/login" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Login</NavLink> */}
                       {/* if user is loggedin then show his email id in navbar */}
-                      <p className='mb-0 d-lg-none'><b>{loggedInUser?.email}</b></p>
+                      {isLoggedIn ? (
+                          <p className='mb-0 d-lg-none'><b>{loggedInUser?.email}</b></p>
+                        ) : (
+                          <NavLink to="/login" className={({ isActive }) =>isActive ? "nav-item nav-link-active" : "nav-item nav-link"}>Login</NavLink>
+                        )}
+                      
               </div>
           </div>
       </nav>
