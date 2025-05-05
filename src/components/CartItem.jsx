@@ -8,7 +8,7 @@ import {
 import toast from "react-hot-toast";
 
 // besically in below component we are doing when user add a product in cart we can delete increase & decrease Quantity with help of redux
-const CartItem = ({ item }) => {
+const CartItem = ({ item }) => { // this item component will receive item from cart via props
   
   // as we want use redux dispatch we are define first
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const CartItem = ({ item }) => {
               className=" border-0 text-primary h3"
               style={{ background: "transparent" }}
             >
-              <i class="bi bi-dash fs-3 border rounded-pill"></i>
+              <i className="bi bi-dash fs-3 border rounded-pill"></i>
             </button>
 
             <span className=" fs-3 border rounded-pill">{item.quantity}</span>
@@ -53,7 +53,7 @@ const CartItem = ({ item }) => {
               className=" border-0 text-primary h3"
               style={{ background: "transparent" }}
             >
-              <i class="bi bi-plus fs-3 border rounded-pill"></i>
+              <i className="bi bi-plus fs-3 border rounded-pill"></i>
             </button>
           </div>
         </div>
@@ -63,7 +63,7 @@ const CartItem = ({ item }) => {
             className=" border-0 text-danger h3"
             style={{ background: "transparent" }}
           >
-            <i class="bi bi-trash3"></i>
+            <i className="bi bi-trash3"></i>
           </button>
         </div>
       </div>

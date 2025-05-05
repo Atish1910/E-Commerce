@@ -7,7 +7,7 @@ const Product = ({post , onSelect }) => {
 
     // const [selected, setSelected] = useState(false);
   // as we created a redux store we are managing state from that store
-  const { cart } = useSelector((state) => state);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   // we call that funcation from cartSlice.js to add the product inside cart
@@ -30,9 +30,9 @@ const Product = ({post , onSelect }) => {
             <img src={post.category.image} className='product' loading='lazy' alt=""  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  />
             <h6 className='product-type px-3 py-1 '>{post.category.slug}</h6>
             {cart.some((p) => p.id === post.id) ? (
-                <i class="bi bi-dash-square fs-4 product-add" onClick={removeFromCart}></i>
+                <i className="bi bi-dash-square fs-4 product-add" onClick={removeFromCart}></i>
             ) : (
-            <i class="bi bi-plus-square fs-4 product-add" onClick={addToCart}></i>
+            <i className="bi bi-plus-square fs-4 product-add" onClick={addToCart}></i>
             )}
         </div>
         <div className="d-flex align-items-center justify-content-around pt-2">

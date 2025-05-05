@@ -4,7 +4,7 @@ import CartItem from "../components/CartItem";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart } = useSelector((state) => state); 
+  const cart = useSelector((state) => state.cart);
   const [totalAmount, setTotalAmount] = useState(0); // Products ammount set & define 
   const [totalItems, setTotalItems] = useState(0); // Products quantity set & define
 

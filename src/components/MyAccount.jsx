@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, NavLink, useNavigate } from "react-router-dom";
 import myprofile from "../assets/img/profile.webp"
 import Navbar from './Navbar';
 
@@ -11,6 +11,7 @@ import Navbar from './Navbar';
 const MyAccount = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); // check user is loggedin or not
     const [loggedInUser, setLoggedInUser] = useState(null); // storeing login details
+    const navigate = useNavigate() // useNavigate instead of Navigate()
   
     // this funcation will only run when componnent render & check if user logged in from local storage or not
     useEffect(() => {
@@ -30,7 +31,7 @@ const MyAccount = () => {
         localStorage.removeItem("loggedInUser");
         setIsLoggedIn(false);
         setLoggedInUser(null);
-        Navigate("/app"); // redirect to app 
+        navigate("/"); // redirect to app 
       };
 
     

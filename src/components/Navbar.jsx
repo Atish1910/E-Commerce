@@ -8,21 +8,10 @@ import { useSelector } from "react-redux";
 // if that funcation is show then we added a active class so user will get idea he is on which component
 // in cart icon if user click on any product it will increase count on that icon as per user input
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, loggedInUser }) => {
   // we proovide data of login creential to navbar so we can display user Email in navbar
-    const { cart } = useSelector((state) => state);
-        const [isLoggedIn, setIsLoggedIn] = useState(false);
-        const [loggedInUser, setLoggedInUser] = useState(null);
-      
-        useEffect(() => {
-          const storedLogin = localStorage.getItem("isLoggedIn");
-          const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      
-          if (storedLogin === "true" && storedUser) {
-            setIsLoggedIn(true);
-            setLoggedInUser(storedUser);
-          }
-        }, []);
+        const cart = useSelector((state) => state.cart);
+
   return (
     <div className="container sticky-top">
       <div className="row align-items-center" >
@@ -31,7 +20,7 @@ const Navbar = () => {
           <div className="">
             <NavLink to="/cart">
                 <div className="position-relative ps-3  d-lg-none">
-                  <i class="bi bi-cart fs-4 fw-bold text-dark"></i>
+                  <i className="bi bi-cart fs-4 fw-bold text-dark"></i>
                     {cart.length > 0 && (
                       <span 
                       className="count-01" 
@@ -47,7 +36,7 @@ const Navbar = () => {
             </div>
             <NavLink to="/" className="nav-tab fs-4 fw-bold pe-lg-4 d-lg-none" >Shopi</NavLink>
             <button type="button" className="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span>
             </button>
           {/* navbar for desktop view */}
           <div className="collapse navbar-collapse justify-content-center align-items-center" id="navbarCollapse">
@@ -73,7 +62,7 @@ const Navbar = () => {
         <p className='mb-0'><b>{loggedInUser?.email}</b></p>
             <NavLink to="/cart">
             <div className=" ps-3">
-              <i class="bi bi-cart fs-4 fw-bold text-dark position-relative">
+              <i className="bi bi-cart fs-4 fw-bold text-dark position-relative">
                 {cart.length > 0 && (
                   <span 
                   className="count-01" 

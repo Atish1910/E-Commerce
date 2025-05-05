@@ -10,13 +10,25 @@ import Cart from "./pages/Cart";
 import MyAccount from "./components/MyAccount";
 import Register from "./login/Register";
 import Login from "./login/Login";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
+  useEffect(() => {
+    const storedLogin = localStorage.getItem("isLoggedIn");
+    const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (storedLogin === "true" && storedUser) {
+      setIsLoggedIn(true);
+      setLoggedInUser(storedUser);
+    }
+  }, []);
   return (
     <>
     <section className="bg-light py-3 border">
-          <Navbar></Navbar>
+    <Navbar isLoggedIn={isLoggedIn} loggedInUser={loggedInUser} />
     </section>
       <section>
         <div className="container">

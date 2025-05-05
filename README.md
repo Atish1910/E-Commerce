@@ -1,12 +1,36 @@
-# React + Vite
+<!-- React E-Commerce Web App -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple and functional e-commerce web application built with React and Vite.
+It allows users to browse products, search items, add them to the cart, and handle login/register functionality.
+The app uses Redux for state management and Bootstrap 5 for styling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- Features -->
 
-## Expanding the ESLint configuration
+- **Created with Vite** for fast and optimized development.
+- **Styled using Bootstrap 5** and **Bootstrap Icons** via NPM.
+- **Fetches product data from an external API** using Axios.
+- **Search functionality** to filter products based on cart titles using a Bootstrap-based search bar.
+- **Add multiple products to cart**, with Redux managing cart state across the app.
+- **User login/logout** functionality.
+- **User data stored in Local Storage** to persist login data.
+- **Form validation** used in Register and Login components.
+- **Navigation** handled using `useNavigate` from `react-router-dom`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Installation
+
+<!-- To Run Code on local server below are steps & dependency -->
+
+git clone https://github.com/Atish1910/E-Commerce.git
+cd react-ecommerce-app
+
+npm i
+npm i boostrap
+npm i bootstrap-icons
+npm i react-router-dom
+npm i react-redux
+npm i react-hot-toast
+react-hook-form
