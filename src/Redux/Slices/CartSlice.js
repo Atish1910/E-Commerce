@@ -14,17 +14,17 @@ export const CartSlice = createSlice({
     
     // we are adding product inside cart 
     add: (state, action) => {
-      // that peoduct contain below data
+      // that product contain below data
       state.push({ ...action.payload, quantity: 1 });
     },
 
-    // Original Remove From Cart Function — unchanged
+    // remove a product from cart 
     remove: (state, action) => {
-      // Filtering i.e. removing item which item.id matches with current state items
+      // remove data with help of id
       return state.filter((item) => item.id !== action.payload);
     },
 
-    // Increase the item quantity from Cart
+    // increase the quantity of product which already added
     addItemQuantity: (state, action) => {
       const itemIndex = state.findIndex(
         (item) => item.id === action.payload.id
@@ -34,7 +34,7 @@ export const CartSlice = createSlice({
       }
     },
 
-    // decsrese the item quantity from Cart
+    // decrease the quantity of product which already added
     decreaseItemQuantity: (state, action) => {
       const itemIndex = state.findIndex(
         (item) => item.id === action.payload.id
@@ -50,5 +50,4 @@ export const CartSlice = createSlice({
 export const { add, remove, addItemQuantity, decreaseItemQuantity } =
   CartSlice.actions;
 
-// Export default reducer
 export default CartSlice.reducer;
