@@ -9,8 +9,9 @@ const API_URL = "https://api.escuelajs.co/api/v1/products";
 const Home = ({ category }) => {
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]); 
-    const [selectedProduct, setSelectedProduct] = useState(null);
+
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
 
     // get api call with axios
@@ -59,26 +60,25 @@ const Home = ({ category }) => {
                         onChange={(e) => setSearchTerm(e.target.value)} />
                     </form>
                 </div>
-                {loading ? (
-                        <Spinner></Spinner>
-                    ) : filteredPosts.length > 0 ? (
+                {loading ? <Spinner></Spinner> : 
+                    filteredPosts.length > 0 ? (
                         <div className="col-lg-12 border">
                             <div className="row">
                                 {
                                     filteredPosts.map((post) => {
                                         return(
-                                        //     <div className="col-lg-4">
-                                        //         <div className=" py-3 rounded-3 mb-4 mt-2">
-                                        //             <div className="position-relative">
-                                        //                 <img src={post.category.image} className='product' loading='lazy' alt="" />
-                                        //                 <h6 className='product-type px-3 py-1'>{post.category.slug}</h6>
-                                        //             </div>
-                                        //             <div className="d-flex align-items-center justify-content-around pt-2">
-                                        //                 <p>{post.title}</p>
-                                        //                 <p><b>{post.price}$</b></p>
-                                        //             </div>
-                                        //         </div>
-                                        //     </div>
+                                            // <div className="col-lg-4">
+                                            //     <div className=" py-3 rounded-3 mb-4 mt-2">
+                                            //         <div className="position-relative">
+                                            //             <img src={post.category.image} className='product' loading='lazy' alt="" />
+                                            //             <h6 className='product-type px-3 py-1'>{post.category.slug}</h6>
+                                            //         </div>
+                                            //         <div className="d-flex align-items-center justify-content-around pt-2">
+                                            //             <p>{post.title}</p>
+                                            //             <p><b>{post.price}$</b></p>
+                                            //         </div>
+                                            //     </div>
+                                            // </div>
                                             <div className="col-6 col-lg-3 mb-4" key={post.id}>
                                                 <Product post={post} onSelect={(product) => setSelectedProduct(product)} ></Product>
                                             </div>

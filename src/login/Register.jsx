@@ -53,12 +53,10 @@ function Register() {
 
                  {/* Phone Number */}
                  <input
-                  type="number"
+                  type="phone"
                   className={`mb-3 form-control ${errors.phone ? "input-errors" : ""}`}
                   placeholder="Enter Phone No"
                   {...register("phone", { required: "Phone number is required",
-                    minLength: { value: 10, message: "Please enter a 10-digit Mobile Number" },
-                    maxLength: { value: 10, message: "Please enter a 10-digit Mobile Number" }
                     // mobile no should be 10Digits
                    })}
                 />

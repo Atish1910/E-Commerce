@@ -1,0 +1,57 @@
+1. Project Walkthrough
+“Can you walk us through your project?”
+
+Be ready to explain your file structure, component architecture, routing, and state management approach.
+
+Talk about the tools and libraries you used (e.g., Vite, React Router, Redux, Firebase).
+
+2. API Integration
+“How did you fetch and manage data from the Fake Store API?”
+
+Show how you handled loading states, error handling, and pagination or filtering.
+
+Be ready to talk about how you used fetch, axios, or any other method.
+
+3. Authentication
+“How did you implement login/signup?”
+
+If you used Firebase, explain how Firebase Authentication works.
+
+They might ask how you secured routes or handled auth state across the app.
+
+4. State Management
+“How are you managing state (e.g., cart, auth, products)?”
+
+Whether you used Context API, Redux, Zustand, or just local component state, be clear and specific.
+
+5. UI/UX and Responsiveness
+“How did you ensure your UI is responsive and user-friendly?”
+
+Discuss CSS frameworks (e.g., Tailwind, Bootstrap) or media queries.
+
+Talk about mobile-first design or custom animations if applicable.
+
+6. Code Quality
+“What practices did you follow for clean code?”
+
+Mention things like folder structure, naming conventions, reusable components, and comments.
+
+If you used ESLint or Prettier, bring that up.
+
+7. Deployment
+“Where did you deploy the app and how?”
+
+Be prepared to talk about Vercel/Netlify setup, environment variables, and build optimization.
+
+8. Challenges & Problem-Solving
+“What were the biggest challenges you faced and how did you overcome them?”
+
+Be honest and highlight any issue with API, state sync, auth bugs, or layout bugs—and how you solved them.
+
+9. Bonus Feature Questions (if implemented)
+Search, filters, reviews, animations: they might ask why and how you added them.
+
+10. Security & Best Practices
+“How do you handle form validation?”
+
+“How do you protect user data?”

@@ -43,8 +43,6 @@ function App() {
             <Route path="/my-account" element={<MyAccount></MyAccount>} />
             <Route path="/register" element={<Register></Register>} />
             <Route path="/login" setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser} element={<Login></Login>} />
-
-
           </Routes>
         </div>
       </section>      
